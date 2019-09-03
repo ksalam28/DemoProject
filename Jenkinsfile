@@ -3,15 +3,15 @@ pipeline {
   stages {
     stage('build') {
       steps {
-        sh 'kubectl apply -f elk/elasticsearch'
-		sh 'kubectl apply -f elk/kibana'
-		sh 'kubectl apply -f elk/beats_init'
-		sh 'kubectl apply -f elk/beats_agents'
+        bat 'kubectl apply -f elk/elasticsearch'
+	bat 'kubectl apply -f elk/kibana'
+	bat 'kubectl apply -f elk/beats_init'
+	bat 'kubectl apply -f elk/beats_agents'
       }
     }
     stage('test') {
       steps {
-        sh 'python test.py'
+        bat 'python test.py'
       }
       post {
         always {
