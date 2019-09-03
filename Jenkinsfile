@@ -3,7 +3,6 @@ pipeline {
   stages {
     stage('build') {
       steps {
-	      
 	      bat 'C:/Windows/System32/kubectl.exe apply -f elk/elasticsearch'
 	      bat 'C:/Windows/System32/kubectl.exe apply -f elk/kibana'
 	      bat 'C:/Windows/System32/kubectl.exe apply -f elk/beats_init'
