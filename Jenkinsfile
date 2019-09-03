@@ -3,10 +3,11 @@ pipeline {
   stages {
     stage('build') {
       steps {
-        bat 'kubectl apply -f elk/elasticsearch'
-	bat 'kubectl apply -f elk/kibana'
-	bat 'kubectl apply -f elk/beats_init'
-	bat 'kubectl apply -f elk/beats_agents'
+	      bat 'ipconfig'
+	      bat 'kubectl apply -f elk/elasticsearch'
+	      bat 'kubectl apply -f elk/kibana'
+	      bat 'kubectl apply -f elk/beats_init'
+	      bat 'kubectl apply -f elk/beats_agents'
       }
     }
     stage('test') {
