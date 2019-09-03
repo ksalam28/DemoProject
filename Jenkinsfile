@@ -4,10 +4,10 @@ pipeline {
     stage('build') {
       steps {
 	      
-	      bat 'C:/Windows/System32/kubectl apply -f elk/elasticsearch'
-	      bat 'C:\Windows\System32\kubectl apply -f elk/kibana'
-	      bat 'C:\Windows\System32\kubectl apply -f elk/beats_init'
-	      bat 'C:\Windows\System32\kubectl apply -f elk/beats_agents'
+	      bat 'C:/Windows/System32/kubectl.exe apply -f elk/elasticsearch'
+	      bat 'C:/Windows/System32/kubectl.exe apply -f elk/kibana'
+	      bat 'C:/Windows/System32/kubectl.exe apply -f elk/beats_init'
+	      bat 'C:/Windows/System32/kubectl.exe apply -f elk/beats_agents'
       }
     }
     stage('test') {
