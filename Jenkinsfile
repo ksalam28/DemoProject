@@ -3,10 +3,11 @@ pipeline {
   stages {
     stage('build') {
       steps {
-	      bat 'C:/Windows/System32/kubectl.exe apply -f elk/elasticsearch'
-	      bat 'C:/Windows/System32/kubectl.exe apply -f elk/kibana'
-	      bat 'C:/Windows/System32/kubectl.exe apply -f elk/beats_init'
-	      bat 'C:/Windows/System32/kubectl.exe apply -f elk/beats_agents'
+	      bat 'minikube start'
+	      bat 'kubectl apply -f elk/elasticsearch'
+	      bat 'kubectl apply -f elk/kibana'
+	      bat 'kubectl apply -f elk/beats_init'
+	      bat 'kubectl apply -f elk/beats_agents'
       }
     }
     stage('test') {
@@ -21,7 +22,8 @@ pipeline {
     }
 	stage('deploy') {
       steps {
-        echo 'Deployed'
+	      bat 'minikube stop'
+	      bat 'minikube delete'
       }
     }
   }
