@@ -8,7 +8,7 @@ pipeline {
 	      bat 'kubectl apply -f elk/kibana'
 	      bat 'kubectl apply -f elk/beats_init'
 	      bat 'kubectl apply -f elk/beats_agents'
-	      bat 'kubect apply -f app/app-deployment.yml'
+	      bat 'kubectl apply -f app/app-deployment.yml'
       }
     }
     stage('test') {
