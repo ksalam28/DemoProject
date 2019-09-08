@@ -13,15 +13,10 @@ pipeline {
     }
     stage('test') {
       steps {
-       		bat 'python test.py'
+       	      bat 'python test.py'
       }
-      post {
-        always {
-          junit 'test-reports/*.xml'
-        }
-      }    
     }
-	stage('deploy') {
+    stage('deploy') {
       steps {
 	      bat 'minikube stop'
 	      bat 'minikube delete'
