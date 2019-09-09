@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('build') {
       steps {
-	      bat 'minikube start'
+	      bat 'minikube start --cpus 4 --memory 8192'
 	      bat 'kubectl apply -f elk/elasticsearch'
 	      bat 'kubectl apply -f elk/kibana'
 	      bat 'kubectl apply -f elk/beats_init'
