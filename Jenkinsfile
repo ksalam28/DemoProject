@@ -8,15 +8,12 @@ pipeline {
     }
     stage('test') {
       steps {
-	      bat 'pip install -r test-requirements.txt'
-	      bat 'python test/kubernetes_test.py'
-       	      bat 'python test/test.py'
+       	      bat 'python test.py'
       }
     }
     stage('deploy') {
       steps {
-	      bat 'minikube stop'
-	      bat 'minikube delete'
+	      bat 'python deploy.py'
       }
     }
   }
