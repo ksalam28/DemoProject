@@ -12,3 +12,4 @@ codecov>=1.4.0
 pycodestyle
 autopep8
 isort
+xmlrunner
