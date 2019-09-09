@@ -13,3 +13,4 @@ pycodestyle
 autopep8
 isort
 xmlrunner
+app
