@@ -1,21 +1,28 @@
 #!/usr/bin/env python
 import logging
 from flask import Flask
+from flask_basicauth import BasicAuth
 
 logging.basicConfig(filename='file.log', filemode='w',level=logging.INFO)
 logger = logging.getLogger(__name__)
 app = Flask(__name__)
 
+app.config['BASIC_AUTH_USERNAME'] = 'user'
+app.config['BASIC_AUTH_PASSWORD'] = 'password'
+
+basic_auth = BasicAuth(app)
 
 @app.route('/')
 @app.route('/hello')  # this route is not working
 @app.route('/hello/')
+@basic_auth.required
 def hello_world():
     logger.info('hello_world called- output: Hello World')
     return 'Hello World!'
 
 
 @app.route('/hello/<username>') # dynamic route
+@basic_auth.required
 def hello_user(username):
     # show the user profile for that user
     logger.info('hello_user called- output ' + username)
