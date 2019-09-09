@@ -8,7 +8,7 @@ metadata:
     role: master
 spec:
   serviceName: elasticsearch-master
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: elasticsearch
@@ -72,6 +72,11 @@ spec:
               name: http
             - containerPort: 9300
               name: transport
+          livenessProbe:
+            tcpSocket:
+              port: transport
+            initialDelaySeconds: 20
+            periodSeconds: 10
           resources:
             requests:
               cpu: 0.25
@@ -98,7 +103,7 @@ spec:
               value: "false"
 
             - name: cluster.name
-              value: my-es-cluster
+              value: demo-project-cluster
             - name: node.name
               valueFrom:
                 fieldRef:
@@ -125,10 +130,10 @@ spec:
       spec:
         accessModes:
           - ReadWriteOnce
-        #storageClassName: standard
+        storageClassName: standard
         resources:
           requests:
-            storage: 8Gi
+            storage: 10Gi
 ---
 apiVersion: policy/v1beta1
 kind: PodDisruptionBudget

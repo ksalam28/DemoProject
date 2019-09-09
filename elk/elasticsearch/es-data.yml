@@ -9,7 +9,7 @@ metadata:
 spec:
   serviceName: elasticsearch-data
   # This is number of nodes that we want to run
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: elasticsearch
@@ -75,6 +75,17 @@ spec:
               name: http
             - containerPort: 9300
               name: transport
+          livenessProbe:
+            tcpSocket:
+              port: transport
+            initialDelaySeconds: 20
+            periodSeconds: 10
+          readinessProbe:
+            httpGet:
+              path: /_cluster/health
+              port: http
+            initialDelaySeconds: 20
+            timeoutSeconds: 5
           resources:
             limits:
               memory: 1Gi
@@ -96,7 +107,7 @@ spec:
               value: "true"
 
             - name: cluster.name
-              value: my-es-cluster
+              value: demo-project-cluster
             - name: node.name
               valueFrom:
                 fieldRef:
@@ -123,10 +134,10 @@ spec:
       spec:
         accessModes:
           - ReadWriteOnce
-        #storageClassName: standard
+        storageClassName: standard
         resources:
           requests:
-            storage: 8Gi
+            storage: 50Gi
 ---
 apiVersion: policy/v1beta1
 kind: PodDisruptionBudget
