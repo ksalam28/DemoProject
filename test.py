@@ -9,6 +9,8 @@ print("Kubernetes Infrastructure Test")
 os.system('python test/kubernetes_test.py')
 time.sleep(1)
 print("App UnitTest")
+#expose port  kubectl port-forward service/flask-app 5000
+os.system('kubectl port-forward service/flask-app 5000')
 os.system('python test/app_test.py')
 time.sleep(1)
 
