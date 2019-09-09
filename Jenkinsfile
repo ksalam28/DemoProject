@@ -14,6 +14,7 @@ pipeline {
     stage('test') {
       steps {
 	      bat 'pip install -r test-requirements.txt'
+	      bat 'python test/kubernetes_test.py'
        	      bat 'python test/test.py'
       }
     }
