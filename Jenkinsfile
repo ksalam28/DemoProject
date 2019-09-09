@@ -3,12 +3,7 @@ pipeline {
   stages {
     stage('build') {
       steps {
-	      bat 'minikube start --cpus 4 --memory 8192'
-	      bat 'kubectl apply -f elk/elasticsearch'
-	      bat 'kubectl apply -f elk/kibana'
-	      bat 'kubectl apply -f elk/beats_init'
-	      bat 'kubectl apply -f elk/beats_agents'
-	      bat 'kubectl apply -f app/app-deployment.yml'
+	      bat 'python build.py'
       }
     }
     stage('test') {
