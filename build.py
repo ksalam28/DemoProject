@@ -17,5 +17,8 @@ os.system('kubectl apply -f elk/beats_agents')
 time.sleep(3)
 os.system('kubectl apply -f app/app-deployment.yml')
 
+print("Waiting for 300 sec .......")
+time.sleep(300)
+
 print("Finished Build Process")
 
