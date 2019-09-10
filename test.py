@@ -37,7 +37,7 @@ if __name__ == "__main__":
             break
 
     time.sleep(1)
-        print("Kubernetes Integration Test")
-        os.system('python test/integration_test.py')
+    print("Kubernetes Integration Test")
+    os.system('python test/integration_test.py')
 
     print("Finished Test Process")
