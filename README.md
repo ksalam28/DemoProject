@@ -26,5 +26,6 @@ elk:
 - filebeat
 
 test: 
-- kubernetes_test (infrastructure test) using python kubetest 
+- infrastructure test using python kubetest 
 - flask app test in python (functional test)
+- integration test using python kubetest
