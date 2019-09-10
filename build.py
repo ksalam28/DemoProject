@@ -5,7 +5,7 @@ import time
 print("Starting Build Process")
 os.system('minikube start --cpus 2 --memory 4096 --disk-size 50GB')
 time.sleep(1)
-os.system('minikube dashboard')
+#os.system('minikube dashboard') # blocking command
 time.sleep(1)
 os.system('kubectl apply -f elk/elasticsearch')
 time.sleep(3)
