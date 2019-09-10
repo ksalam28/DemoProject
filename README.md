@@ -23,5 +23,5 @@ elk:
 - filebeat
 
 test: 
-- contains pytho kubernetes 
-- flask app test in python
+- kubernetes_test (infrastructure test) using python kubetest 
+- flask app test in python (functional test)
