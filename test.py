@@ -23,13 +23,17 @@ if __name__ == "__main__":
     time.sleep(1)
     t1 = threading.Thread(name="port-forwarding", target=thread1)
     t1.start()
+    time.sleep(3)
     threads.append(t1)
     t2 = threading.Thread(name="flask-app-test", target=thread2)
     threads.append(t2)
     t2.start()
 
-    time.sleep(20)
-    for thread in threads:
-        thread.join()
+    while True:
+        time.sleep(1)
+        if not t2.isAlive():
+            for thread in threads:
+                thread.join()
+            break
 
     print("Finished Test Process")
