@@ -19,7 +19,7 @@ if __name__ == "__main__":
     os.system('pip install -r test-requirements.txt')
     time.sleep(1)
     print("Kubernetes Infrastructure Test")
-    os.system('python test/kubernetes_test.py')
+    os.system('python test/infrastructure_test.py')
     time.sleep(1)
     t1 = threading.Thread(name="port-forwarding", target=thread1)
     t1.start()
