@@ -8,9 +8,9 @@ Requirements:
 - python 3.7.x
 -------------------------------
 
-jenkinsfile: 
+Jenkinsfile: 
 - pipeline config for jenkins job (build, test, deploy)
-- please use this github repository for jenkins declarative pipeline (jenkinsfile) 
+- please use this github repository for jenkins declarative pipeline (Jenkinsfile) 
 
 app: 
 - python flask app with docker configuration file.
