@@ -6,6 +6,8 @@ Requirements:
 - minikube for windows (requires: CPU=2, Memory=4096, disk-size=50GB)
 - VirtualBox for windows (Hyper-V should be disabled)
 - python 3.7.x
+
+* kubeclt.exe path needs to be added in system env. variable
 -------------------------------
 
 Jenkinsfile: 
