@@ -15,6 +15,7 @@ Jenkinsfile:
 app: 
 - python flask app with docker configuration file.
 - Docker image: ksalam28/flask-demo:latest
+- contains manifest of flask-app (kubernetes)
      
 elk: 
 - contains manifest of
