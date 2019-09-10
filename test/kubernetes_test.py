@@ -5,33 +5,46 @@ import unittest
 import kubernetes.client
 from kubernetes import client, config
 from kubernetes.client.rest import ApiException
-from kubernetes.client.apis.logs_api import LogsApi
+
+config.load_kube_config()
+v1 = client.CoreV1Api()
+
+mylist = ['elasticsearch-master', 'elasticsearch-data', 'filebeat-dashboard', 'filebeat-template', 'filebeat', 'kibana', 'flask-app']
 
 
-
-class TestKubernetes(unittest.TestCase):
-    """ LogsApi unit test stubs """
+class TestInfrastructure(unittest.TestCase):
 
     def setUp(self):
-        self.api = kubernetes.client.apis.logs_api.LogsApi()
+        pass
 
     def tearDown(self):
         pass
 
-    def test_kubernetes(self):
-        """
-        Test case for log_file_list_handler
-        """
-	config.load_kube_config()
-	v1 = client.CoreV1Api()
+    def test_kubernetes_pods(self):
+        print("----Listing pods for DemoProject----")
+        ret = v1.list_pod_for_all_namespaces(watch=False)
+        for i in ret.items:
+            if i.metadata.namespace == 'default':
+                for j in mylist:
+                    if j in i.metadata.name:
+                        print("%s\t%s\t%s" % (i.status.pod_ip, i.metadata.name, i.status.phase))
+        print("------------------------------------------")
+        pass
 
-	print("Listing pods with their IPs:")
-	ret = v1.list_pod_for_all_namespaces(watch=False)
-	for i in ret.items:
-		print("%s\t%s\t%s" %
-			  (i.status.pod_ip, i.metadata.namespace, i.metadata.name))	  
+    def test_kubernetes_services(self):
+        print("----Listing services for DemoProject----")
+        ret = v1.list_service_for_all_namespaces(watch=False)
+        for i in ret.items:
+            if i.metadata.namespace == 'default':
+                for j in mylist:
+                    if j in i.metadata.name:
+                        print ("-> " + i.metadata.name)
+        print("------------------------------------------")
         pass
 
 
 if __name__ == '__main__':
+    import xmlrunner
+    unittest.main(testRunner=xmlrunner.XMLTestRunner(output='test-reports'))
     unittest.main()
+
