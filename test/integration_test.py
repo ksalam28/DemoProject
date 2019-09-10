@@ -10,9 +10,10 @@ config.load_kube_config()
 v1 = client.CoreV1Api()
 
 mylist = ['elasticsearch-master', 'elasticsearch-data', 'filebeat-dashboard', 'filebeat-template', 'filebeat', 'kibana', 'flask-app']
+mydict = {'elasticsearch-master': False, 'elasticsearch-data': False, 'filebeat-dashboard':False, 'filebeat-template':False, 'filebeat':False, 'kibana':False, 'flask-app':False}
 
 
-class TestInfrastructure(unittest.TestCase):
+class TestIntegration(unittest.TestCase):
 
     def setUp(self):
         pass
@@ -27,20 +28,18 @@ class TestInfrastructure(unittest.TestCase):
             if i.metadata.namespace == 'default':
                 for j in mylist:
                     if j in i.metadata.name:
-                        print("%s\t%s\t%s" % (i.status.pod_ip, i.metadata.name, i.status.phase))
+                        if i.status.phase == 'Running':
+                            mydict[j] = True
+                        #print("%s\t%s\t%s" % (i.status.pod_ip, i.metadata.name, i.status.phase))
+        print(mydict)
+        overallstatus = True
+        for name, state in mydict.items():
+            if state == False:
+                overallstatus = False
+                break
         print("------------------------------------------")
-        pass
-
-    def test_kubernetes_services(self):
-        print("----Listing services for DemoProject----")
-        ret = v1.list_service_for_all_namespaces(watch=False)
-        for i in ret.items:
-            if i.metadata.namespace == 'default':
-                for j in mylist:
-                    if j in i.metadata.name:
-                        print ("-> " + i.metadata.name)
-        print("------------------------------------------")
-        pass
+        if overallstatus:
+            pass
 
 
 if __name__ == '__main__':
