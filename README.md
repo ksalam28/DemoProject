@@ -4,8 +4,10 @@ Requirements:
 - Windows 10 (64bit)
 - Jenkins for windows
 - minikube for windows
+- VirtualBox for windows (Hyper-V should be disabled)
 - python 3.7.x
-               
+-------------------------------
+
 jenkinsfile: 
 - pipeline config for jenkins job (build, test, deploy)
 - please use this github repository for jenkins declarative pipeline (jenkinsfile) 
@@ -15,7 +17,10 @@ app:
 - Docker image: ksalam28/flask-demo:latest
      
 elk: 
-- contains manifest file for kubernetes (elasticsearch, kibana, filebeat, filemetric)
+- contains manifest of
+- elasticsearch
+- kibana
+- filebeat
 
 test: 
 - contains pytho kubernetes 
