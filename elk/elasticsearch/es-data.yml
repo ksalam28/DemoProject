@@ -9,7 +9,7 @@ metadata:
 spec:
   serviceName: elasticsearch-data
   # This is number of nodes that we want to run
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: elasticsearch
