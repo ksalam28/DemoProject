@@ -9,7 +9,7 @@ Requirements:
 
 * kubeclt.exe path needs to be added in system env. variable (https://github.com/Azure/azure-cli/issues/5374 may help to configure)
 -------------------------------
-
+![alt text](https://github.com/ksalam28/DemoProject/blob/master/img/jenkins.PNG)
 Jenkins: 
 - pipeline config groovy for jenkins job (build, test, deploy)
 - please use this github repository for jenkins declarative pipeline (Jenkinsfile groovy file) 
@@ -25,22 +25,20 @@ Manual Build:
 - kubectl port-forward service/flask-app 5000
 - python test.py
 -----------------------------
-![alt text](https://github.com/ksalam28/DemoProject/blob/master/img/jenkins.PNG)
-![alt text](https://github.com/ksalam28/DemoProject/blob/master/img/build.PNG)
-![alt text](https://github.com/ksalam28/DemoProject/blob/master/img/test.PNG)
-
 app: 
 - python flask app with docker configuration file.
 - Docker image: ksalam28/flask-demo:latest 
 - (https://hub.docker.com/r/ksalam28/flask-demo)
 - contains manifest of flask-app (kubernetes)
      
+![alt text](https://github.com/ksalam28/DemoProject/blob/master/img/build.PNG)     
 elk: 
 - contains manifest of
 - elasticsearch
 - kibana
 - filebeat
 
+![alt text](https://github.com/ksalam28/DemoProject/blob/master/img/test.PNG)
 test: 
 - infrastructure test using python kubetest 
 - flask app test in python (functional test)
