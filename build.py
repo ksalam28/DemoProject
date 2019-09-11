@@ -3,7 +3,7 @@ import time
 
 
 print("Starting Build Process")
-os.system('minikube start --cpus 2 --memory 4096 --disk-size 50GB')
+#os.system('minikube start --cpus 2 --memory 4096 --disk-size 50GB')
 time.sleep(1)
 #os.system('minikube dashboard') # blocking command
 time.sleep(1)
