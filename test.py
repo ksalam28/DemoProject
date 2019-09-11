@@ -10,16 +10,16 @@ def thread1():
 
 def thread2():
     print("App Funtional test starting...")
-    os.system('python test/app_test.py')
+    os.system('python3 test/app_test.py')
 
 
 if __name__ == "__main__":
     threads = []
     print("Starting Test Process")
-    os.system('pip install -r test-requirements.txt')
+    os.system('pip3 install -r test-requirements.txt')
     time.sleep(1)
     print("Kubernetes Infrastructure Test")
-    os.system('python test/kubernetes_test.py')
+    os.system('python3 test/infrastructure_test.py')
     time.sleep(1)
     t1 = threading.Thread(name="port-forwarding", target=thread1)
     t1.start()
@@ -38,6 +38,6 @@ if __name__ == "__main__":
 
     time.sleep(1)
     print("Kubernetes Integration Test")
-    os.system('python test/integration_test.py')
+    os.system('python3 test/integration_test.py')
 
     print("Finished Test Process")
