@@ -25,6 +25,9 @@ Manual Build:
 - kubectl port-forward service/flask-app 5000
 - python test.py
 -----------------------------
+![alt text](https://github.com/ksalam28/DemoProject/blob/master/img/jenkins.PNG)
+![alt text](https://github.com/ksalam28/DemoProject/blob/master/img/build.PNG)
+![alt text](https://github.com/ksalam28/DemoProject/blob/master/img/test.PNG)
 
 app: 
 - python flask app with docker configuration file.
