@@ -4,7 +4,7 @@ Requirements:
 - Windows 10 (64bit)
 - Jenkins for windows
 - minikube for windows (requires: CPU=2, Memory=4096, disk-size=50GB)
-- VirtualBox for windows (Hyper-V should be disabled)
+- VirtualBox for windows (Hyper-V should be disabled, visualization must be enabled from BIOS)
 - python 3.7.x
 
 * kubeclt.exe path needs to be added in system env. variable (https://github.com/Azure/azure-cli/issues/5374 may help to configure)
