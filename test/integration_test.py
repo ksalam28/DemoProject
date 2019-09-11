@@ -22,7 +22,7 @@ class TestIntegration(unittest.TestCase):
         pass
 
     def test_kubernetes_pods(self):
-        print("----Listing pods for DemoProject----")
+        print("----Running Integration test----")
         ret = v1.list_pod_for_all_namespaces(watch=False)
         for i in ret.items:
             if i.metadata.namespace == 'default':
@@ -38,8 +38,8 @@ class TestIntegration(unittest.TestCase):
                 overallstatus = False
                 break
         print("------------------------------------------")
-        if overallstatus:
-            pass
+        self.assertEqual(overallstatus, True)
+
 
 
 if __name__ == '__main__':
