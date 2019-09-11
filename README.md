@@ -24,6 +24,7 @@ Manual Build:
 - kubectl apply -f app/app-deployment.yml
 - kubectl port-forward service/flask-app 5000
 - python test.py
+-----------------------------
 
 app: 
 - python flask app with docker configuration file.
