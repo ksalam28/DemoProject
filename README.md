@@ -28,7 +28,8 @@ Manual Build:
 
 app: 
 - python flask app with docker configuration file.
-- Docker image: ksalam28/flask-demo:latest
+- Docker image: ksalam28/flask-demo:latest 
+- (https://hub.docker.com/r/ksalam28/flask-demo)
 - contains manifest of flask-app (kubernetes)
      
 elk: 
