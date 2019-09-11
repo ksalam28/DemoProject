@@ -137,7 +137,7 @@ spec:
         storageClassName: standard
         resources:
           requests:
-            storage: 50Gi
+            storage: 10Gi
 ---
 apiVersion: policy/v1beta1
 kind: PodDisruptionBudget
