@@ -7,12 +7,23 @@ Requirements:
 - VirtualBox for windows (Hyper-V should be disabled)
 - python 3.7.x
 
-* kubeclt.exe path needs to be added in system env. variable
+* kubeclt.exe path needs to be added in system env. variable (https://github.com/Azure/azure-cli/issues/5374 may help to configure)
 -------------------------------
 
-Jenkinsfile: 
-- pipeline config for jenkins job (build, test, deploy)
-- please use this github repository for jenkins declarative pipeline (Jenkinsfile) 
+Jenkins: 
+- pipeline config groovy for jenkins job (build, test, deploy)
+- please use this github repository for jenkins declarative pipeline (Jenkinsfile groovy file) 
+
+Manual Build:
+- minikube start --cpus 2 --memory 4096 --disk-size 50GB
+- minikube dashboard
+- kubectl apply -f elk/elasticsearch
+- kubectl apply -f elk/kibana
+- kubectl apply -f elk/beats_init
+- kubectl apply -f elk/beats_agents
+- kubectl apply -f app/app-deployment.yml
+- kubectl port-forward service/flask-app 5000
+- python test.py
 
 app: 
 - python flask app with docker configuration file.
@@ -29,3 +40,6 @@ test:
 - infrastructure test using python kubetest 
 - flask app test in python (functional test)
 - integration test using python kubetest
+
+
+
