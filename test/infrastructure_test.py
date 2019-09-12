@@ -13,7 +13,7 @@ api_instance = kubernetes.client.BatchV1Api(kubernetes.client.ApiClient(configur
 api_response = api_instance.get_api_resources()
 v1 = client.CoreV1Api()
 
-mylist = ['elasticsearch-master', 'elasticsearch-data', 'filebeat-dashboard', 'filebeat-template', 'filebeat', 'kibana', 'flask-app']
+mylist = ['elasticsearch-master', 'elasticsearch-data', 'filebeat', 'kibana', 'flask-app']
 
 
 class TestInfrastructure(unittest.TestCase):
