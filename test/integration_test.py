@@ -13,8 +13,8 @@ api_instance = kubernetes.client.BatchV1Api(kubernetes.client.ApiClient(configur
 api_response = api_instance.get_api_resources()
 v1 = client.CoreV1Api()
 
-mylist = ['elasticsearch-master', 'elasticsearch-data', 'filebeat-dashboard', 'filebeat-template', 'filebeat', 'kibana', 'flask-app']
-mydict = {'elasticsearch-master': False, 'elasticsearch-data': False, 'filebeat-dashboard':False, 'filebeat-template':False, 'filebeat':False, 'kibana':False, 'flask-app':False}
+mylist = ['elasticsearch-master', 'elasticsearch-data', 'filebeat', 'kibana', 'flask-app']
+mydict = {'elasticsearch-master': False, 'elasticsearch-data': False, 'filebeat':False, 'kibana':False, 'flask-app':False}
 
 
 class TestIntegration(unittest.TestCase):
