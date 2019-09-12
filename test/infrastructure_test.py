@@ -3,10 +3,14 @@ import sys
 import unittest
 
 import kubernetes.client
-from kubernetes import client, config
+from kubernetes import client, config, utils
 from kubernetes.client.rest import ApiException
 
+# Setup K8 configs
 config.load_kube_config()
+configuration = kubernetes.client.Configuration()
+api_instance = kubernetes.client.BatchV1Api(kubernetes.client.ApiClient(configuration))
+api_response = api_instance.get_api_resources()
 v1 = client.CoreV1Api()
 
 mylist = ['elasticsearch-master', 'elasticsearch-data', 'filebeat-dashboard', 'filebeat-template', 'filebeat', 'kibana', 'flask-app']
