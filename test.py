@@ -28,7 +28,7 @@ if __name__ == "__main__":
     time.sleep(1)
     t1 = threading.Thread(name="port-forwarding", target=thread1)
     t1.start()
-    time.sleep(3)
+    time.sleep(10)
     threads.append(t1)
     t2 = threading.Thread(name="flask-app-test", target=thread2)
     threads.append(t2)
